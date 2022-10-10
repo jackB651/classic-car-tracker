@@ -18,7 +18,6 @@ function Reviews(){
         );
     return(
         <div>
-            <button>Add new review</button>
             <h2>reviews</h2>
             {listReviews}
         </div>
