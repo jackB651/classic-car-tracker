@@ -14,7 +14,7 @@ function Reviews(){
     },[])
    console.log(reviews)
     const listReviews = reviews.map((review) => 
-        <ReviewCard review = {review}/>
+        <ReviewCard key = {review.id} review = {review}/>
         );
     return(
         <div>
