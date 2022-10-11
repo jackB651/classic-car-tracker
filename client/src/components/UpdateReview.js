@@ -9,7 +9,8 @@ function UpdateReview({id}){
         review: updatedReview
     }
    
-    const fetching = () =>{ 
+    const fetching = (e) =>{ 
+        e.preventDefault()
         fetch(`/reviews/${id}`, {
            method:"PATCH",
            headers:{

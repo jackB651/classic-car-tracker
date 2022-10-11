@@ -20,14 +20,17 @@ function Cars(){
            <CarCard key={car.id} car={car}/>
         );
     return(
-        <div>
-            <div>
-              {listCars}
-            </div>
-            <div>
-               <p>Add new car:</p>
-               <button onClick = {handle}>Create</button>
-            </div>
+       <div>
+        <h1>Cars!</h1>
+         <div>
+             <div>
+               {listCars}
+             </div>
+             <div>
+                <p>Add new car:</p>
+                <button onClick = {handle}>Create</button>
+             </div>
+         </div>
         </div>
     )
 }

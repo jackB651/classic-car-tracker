@@ -1,15 +1,32 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-function Create(){
+function Create({user, setUser}){
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-
+    const history = useHistory();
+    function handleSubmit(e){
+        e.preventDefault()
+        const itemData = {
+            username: username,
+            password: password
+        }
+        fetch('/signup',{
+            method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(itemData)
+        })
+        .then(r=>r.json())
+        .then(resp => setUser(resp))
+    }
 
     return(
         <div>
             <h1>Create your Account</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <div>
                        <label htmlFor="username">Username</label>
@@ -24,7 +41,7 @@ function Create(){
                     <div>
                        <label htmlFor="password">Password</label>
                        <input
-                         type = "password"
+                         type = "text"
                          id = "password"
                          autoComplete="off"
                          value={password}

@@ -8,26 +8,19 @@ import Cars from "./pages/Cars";
 import Home from "./pages/Home";
 import NewReview from "./pages/NewReview";
 import NewCar from "./pages/NewCar";
+import MyAccount from "./pages/MyAccount";
 
 function App() {
-  
+
+ const [user, setUser] = useState(null)
 //return with client side routes
 return (
   
     <div className="App">
-      <Navbar/>
+      <Navbar user={user} setUser={setUser}/>
       <Switch>
-        <Route path="/create">
-          <Create/>
-        </Route>
-        <Route path="/login">
-          <Login/>
-        </Route>
         <Route path="/Home">
           <Home/>
-        </Route>
-        <Route path="/new_car">
-          <NewCar/>
         </Route>
         <Route path="/reviews">
           <Reviews/>
@@ -35,9 +28,21 @@ return (
         <Route path="/cars">
           <Cars/>
         </Route>
-        <Route path="/new_review">
+        <Route path="/create">
+          <Create user = {user} setUser = {setUser}/>
+        </Route>
+        <Route path="/login">
+          <Login user = {user} setUser = {setUser}/>
+        </Route>
+        <Route path="/new_car">
+          <NewCar/>
+        </Route>
+        <Route path="/new_review" user = {user}>
           <NewReview/>
-          </Route>
+        </Route>
+        <Route path="/user_account">
+          <MyAccount user = {user}/>
+        </Route>
       </Switch>
     </div>
   

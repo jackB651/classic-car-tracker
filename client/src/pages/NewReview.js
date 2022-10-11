@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function NewReview(){
+function NewReview({user}){
    
    const [rating, setRating] = useState("")
    const [review, setReview] = useState("")
@@ -8,6 +8,7 @@ function NewReview(){
    const [carId, setCarId] = useState("")
 
    useEffect(()=>{
+    console.log(user)
     fetch(`/cars`)
     .then(r=>r.json())
     .then(resp=>setCars(resp))
@@ -26,7 +27,7 @@ function NewReview(){
         rating,
         review,
         car_id: car_for_post.id,
-        user_id: 17
+        user_id: 20
     }
         fetch(`/reviews`,{
             method: "POST",
@@ -39,6 +40,8 @@ function NewReview(){
     }
 
     return(
+      <div>
+        <h1>New Reviews!</h1>
        <div>
         <form onSubmit = {handleSubmit}>
             <div>
@@ -72,6 +75,7 @@ function NewReview(){
             </div>
         </form>
        </div>
+      </div>
     )
 }
 export default NewReview;

@@ -29,6 +29,8 @@ function NewCar(){
         }
 
     return(
+       <div> 
+        <h1>New Car!</h1>     
         <div>
           <form onSubmit={handleSubmit}>
             <div>
@@ -76,6 +78,7 @@ function NewCar(){
                 </button>
           </form>
         </div>
+      </div>
     )
 }
 export default NewCar;
